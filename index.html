@@ -7,7 +7,6 @@
   @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Lora:wght@500;700&display=swap');
 
   * { box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   @page {
@@ -27,6 +26,8 @@
     margin: 0;
     padding: 18px 10px;
     font-size: 10.5pt;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   .page {
@@ -37,26 +38,19 @@
     border: 6px double #1B3B6F;
     box-shadow: 0 8px 30px rgba(0,0,0,0.2);
     position: relative;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
-  .top-ornament {
+  .top-ornament, .bottom-ornament {
     height: 12px;
-    background:
-      repeating-linear-gradient(90deg,
-        #1B3B6F 0px, #1B3B6F 14px,
-        #2a4d8a 14px, #2a4d8a 28px);
+    background: repeating-linear-gradient(90deg, #1B3B6F 0px, #1B3B6F 14px, #2a4d8a 14px, #2a4d8a 28px);
     border-radius: 2px;
-    margin-bottom: 18px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
-  .bottom-ornament {
-    height: 12px;
-    background:
-      repeating-linear-gradient(90deg,
-        #1B3B6F 0px, #1B3B6F 14px,
-        #2a4d8a 14px, #2a4d8a 28px);
-    border-radius: 2px;
-    margin-top: 24px;
-  }
+  .top-ornament { margin-bottom: 18px; }
+  .bottom-ornament { margin-top: 24px; }
 
   .book-title {
     font-family: 'Lora', Georgia, serif;
@@ -107,15 +101,8 @@
     column-gap: 24px;
     font-size: 9.5pt;
   }
-  .toc li {
-    padding: 2px 0;
-    break-inside: avoid;
-  }
-  .toc a {
-    color: #2B1D0E;
-    text-decoration: none;
-    border-bottom: 1px dotted #a67c3a;
-  }
+  .toc li { padding: 2px 0; break-inside: avoid; }
+  .toc a { color: #2B1D0E; text-decoration: none; border-bottom: 1px dotted #a67c3a; }
   .toc a:hover { color: #1B3B6F; }
 
   .section-header {
@@ -126,57 +113,41 @@
     page-break-after: avoid;
     page-break-inside: avoid;
   }
-  .section-header.sub {
-    margin: 22px 0 10px;
-  }
   .medallion {
-    width: 50px;
-    height: 50px;
+    width: 50px; height: 50px;
     border-radius: 50%;
     background: radial-gradient(circle at 30% 30%, #3a5fa0, #1B3B6F 72%);
     border: 3px solid #C9A24B;
     color: #F2E3C6;
     font-family: 'Lora', Georgia, serif;
-    font-size: 22pt;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 20pt; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
     box-shadow: 0 2px 6px rgba(0,0,0,0.35), inset 0 0 6px rgba(255,255,255,0.15);
     line-height: 1;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   .ribbon {
     background: linear-gradient(180deg, #f7e8c5 0%, #e8d4a0 100%);
     color: #2B1D0E;
     font-family: 'Lora', Georgia, serif;
-    font-size: 15pt;
-    font-weight: 700;
+    font-size: 15pt; font-weight: 700;
     padding: 7px 26px;
     border: 2px solid #C9A24B;
     border-radius: 3px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.6);
     position: relative;
     letter-spacing: 0.3px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   .ribbon::before, .ribbon::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 0; height: 0;
-    border-style: solid;
+    content: ''; position: absolute; top: 50%; transform: translateY(-50%);
+    width: 0; height: 0; border-style: solid;
   }
-  .ribbon::before {
-    left: -12px;
-    border-width: 9px 12px 9px 0;
-    border-color: transparent #C9A24B transparent transparent;
-  }
-  .ribbon::after {
-    right: -12px;
-    border-width: 9px 0 9px 12px;
-    border-color: transparent transparent transparent #C9A24B;
-  }
+  .ribbon::before { left: -12px; border-width: 9px 12px 9px 0; border-color: transparent #C9A24B transparent transparent; }
+  .ribbon::after { right: -12px; border-width: 9px 0 9px 12px; border-color: transparent transparent transparent #C9A24B; }
 
   h3 {
     font-family: 'Lora', Georgia, serif;
@@ -188,149 +159,75 @@
     page-break-after: avoid;
   }
 
-  p {
-    margin: 6px 0 10px;
-    text-align: justify;
-    hyphens: auto;
-  }
+  p { margin: 6px 0 10px; text-align: justify; hyphens: auto; }
 
   table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 8px 0 14px;
-    font-size: 9.5pt;
-    background: rgba(255, 250, 235, 0.5);
-    page-break-inside: avoid;
+    width: 100%; border-collapse: collapse; margin: 8px 0 14px; font-size: 9.5pt;
+    background: rgba(255, 250, 235, 0.5); page-break-inside: avoid;
   }
   th, td {
-    border: 1px solid #b89b62;
-    padding: 5px 8px;
-    text-align: left;
-    vertical-align: top;
+    border: 1px solid #b89b62; padding: 5px 8px; text-align: left; vertical-align: top;
   }
   th {
     background: linear-gradient(180deg, #e8d4a0, #d9c185);
-    color: #2B1D0E;
-    font-weight: 700;
-    font-family: 'Lora', Georgia, serif;
+    color: #2B1D0E; font-weight: 700; font-family: 'Lora', Georgia, serif;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
   }
-  tbody tr:nth-child(even) td {
-    background: rgba(201,162,75,0.07);
-  }
+  tbody tr:nth-child(even) td { background: rgba(201,162,75,0.07); }
   td.center, th.center { text-align: center; }
 
-  /* Ссылки в указателе */
-  .index-table a {
-    color: #1B3B6F;
-    text-decoration: none;
-    border-bottom: 1px dotted #7a5c2e;
-  }
-  .index-table a:hover {
-    color: #8b2d1f;
-    border-bottom-color: #8b2d1f;
-  }
-  .index-table td:first-child a,
-  .index-table td:nth-child(3) a {
-    font-weight: 600;
-    color: #2B1D0E;
-    border-bottom: 1px dotted #a67c3a;
-  }
-  .index-table td:first-child a:hover,
-  .index-table td:nth-child(3) a:hover {
-    color: #1B3B6F;
-  }
+  .index-table a { color: #1B3B6F; text-decoration: none; border-bottom: 1px dotted #7a5c2e; }
+  .index-table a:hover { color: #8b2d1f; border-bottom-color: #8b2d1f; }
+  .index-table td:first-child a, .index-table td:nth-child(3) a { font-weight: 600; color: #2B1D0E; border-bottom: 1px dotted #a67c3a; }
+  .index-table td:first-child a:hover, .index-table td:nth-child(3) a:hover { color: #1B3B6F; }
 
   .callout {
     background: linear-gradient(180deg, #f8ecd0, #f0e0bc);
     border-left: 5px solid #C9A24B;
-    border-top: 1px solid #d9c185;
-    border-right: 1px solid #d9c185;
-    border-bottom: 1px solid #d9c185;
-    padding: 10px 14px;
-    margin: 12px 0;
-    border-radius: 3px;
-    page-break-inside: avoid;
-    font-size: 10pt;
+    border-top: 1px solid #d9c185; border-right: 1px solid #d9c185; border-bottom: 1px solid #d9c185;
+    padding: 10px 14px; margin: 12px 0; border-radius: 3px;
+    page-break-inside: avoid; font-size: 10pt;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
   }
   .callout-title {
-    display: inline-block;
-    font-family: 'Lora', Georgia, serif;
-    font-weight: 700;
-    color: #1B3B6F;
-    font-size: 10.5pt;
-    margin-right: 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    display: inline-block; font-family: 'Lora', Georgia, serif; font-weight: 700;
+    color: #1B3B6F; font-size: 10.5pt; margin-right: 6px; text-transform: uppercase; letter-spacing: 0.5px;
   }
-  .callout.warn {
-    border-left-color: #8b2d1f;
-    background: linear-gradient(180deg, #f7e0d2, #f0d2c0);
-  }
+  .callout.warn { border-left-color: #8b2d1f; background: linear-gradient(180deg, #f7e0d2, #f0d2c0); }
   .callout.warn .callout-title { color: #8b2d1f; }
-  .callout.example {
-    border-left-color: #1B3B6F;
-  }
+  .callout.example { border-left-color: #1B3B6F; }
 
-  ul, ol {
-    margin: 6px 0 12px;
-    padding-left: 22px;
-  }
-  li {
-    margin: 3px 0;
-  }
+  ul, ol { margin: 6px 0 12px; padding-left: 22px; }
+  li { margin: 3px 0; }
 
   .role-block {
-    background: rgba(255, 250, 235, 0.55);
-    border: 1px solid #d9c185;
-    border-radius: 3px;
-    padding: 8px 12px;
-    margin: 10px 0;
-    page-break-inside: avoid;
+    background: rgba(255, 250, 235, 0.55); border: 1px solid #d9c185; border-radius: 3px;
+    padding: 8px 12px; margin: 10px 0; page-break-inside: avoid;
   }
-  .role-title {
-    font-family: 'Lora', Georgia, serif;
-    color: #1B3B6F;
-    font-weight: 700;
-    font-size: 11pt;
-    margin: 0 0 5px;
-  }
+  .role-title { font-family: 'Lora', Georgia, serif; color: #1B3B6F; font-weight: 700; font-size: 11pt; margin: 0 0 5px; }
 
   strong { color: #1B3B6F; }
 
-  /* Кнопка «наверх» */
-  .to-top {
-    display: inline-block;
-    margin: 18px 0 4px;
-    font-size: 9pt;
-    color: #1B3B6F;
-    text-decoration: none;
-    border-bottom: 1px dotted #a67c3a;
-  }
+  .to-top { display: inline-block; margin: 18px 0 4px; font-size: 9pt; color: #1B3B6F; text-decoration: none; border-bottom: 1px dotted #a67c3a; }
   .to-top:hover { color: #8b2d1f; }
 
   @media print {
     body {
-      background: #fff;
-      padding: 0;
-      font-size: 10.5pt;
+      background: transparent !important; padding: 0; font-size: 10.5pt;
+      -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
     }
     .page {
-      border: none;
-      box-shadow: none;
-      padding: 0;
-      max-width: none;
-      background: #fff;
+      border: 6px double #1B3B6F; box-shadow: none; padding: 14mm 12mm; max-width: none;
+      background: #F2E3C6 !important;
+      -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
     }
-    .top-ornament, .bottom-ornament,
-    .medallion, .ribbon, th, .callout, .toc {
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
+    .top-ornament, .bottom-ornament, .medallion, .ribbon, th, .callout, .toc, .role-block {
+      -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
     }
     .section-header { page-break-after: avoid; }
     table, .callout, .toc, .role-block { page-break-inside: avoid; }
     a { color: inherit; text-decoration: none; }
     .to-top { display: none; }
-    .no-print { display: none; }
   }
 </style>
 </head>
@@ -341,7 +238,7 @@
   <div class="top-ornament"></div>
 
   <h1 class="book-title">Памятка игрока<br>«Фьефы Англии»</h1>
-  <p class="subtitle">Версия 3 (полная) — удобная для чтения</p>
+  <p class="subtitle">Версия 4 (полная) — удобная для чтения</p>
   <p class="subtitle-small">Сводная памятка по правилам для быстрого старта</p>
 
   <div class="toc">
@@ -351,6 +248,7 @@
       <li><a href="#s2">2. За что дают ПО</a></li>
       <li><a href="#s3">3. Ключевые термины</a></li>
       <li><a href="#s3a">3а. Королевская семья</a></li>
+      <li><a href="#s3b">3б. Двор, Церковь и Союзы</a></li>
       <li><a href="#s4">4. Порядок хода: 8 фаз</a></li>
       <li><a href="#s5">5. Сражения</a></li>
       <li><a href="#s6">6. Атака города, замка, крепости</a></li>
@@ -372,9 +270,7 @@
   <p>Создать самую могущественную семью и набрать больше всех <strong>Победных очков (ПО)</strong>.</p>
 
   <table>
-    <thead>
-      <tr><th>Условие</th><th>Победа</th></tr>
-    </thead>
+    <thead><tr><th>Условие</th><th>Победа</th></tr></thead>
     <tbody>
       <tr><td>Одиночная</td><td><strong>3 ПО</strong> (с 5-го раунда)</td></tr>
       <tr><td>Брачный союз</td><td><strong>4 ПО</strong> суммарно на двоих</td></tr>
@@ -433,7 +329,6 @@
       <tr><td><strong>Контроль над городом</strong></td><td>Игрок контролирует город, если там есть его лорд или войска. Если город в фьефе и войск нет — контролирует владелец фьефа. Только один игрок.</td></tr>
       <tr><td><strong>Туман войны</strong></td><td>Войска лежат лицом вниз; тип раскрывается перед сражением.</td></tr>
       <tr><td><strong>Доход</strong></td><td>1 пенни за город; 2 за мельницу/аббатство; +1 за погоду/урожай; 2 пенни королеве-консорту. При викингах доход делится на 2 (округление вверх).</td></tr>
-      <tr><td><strong>Налог</strong></td><td>Карта события: дополнительный доход с фьефа или церковного округа.</td></tr>
     </tbody>
   </table>
 
@@ -443,6 +338,7 @@
       <tr><td><strong>Брачный союз</strong></td><td>С 3-го раунда. Обмен деньгами и картами; возможность совместной победы.</td></tr>
       <tr><td><strong>Почтовый голубь</strong></td><td>Передача карты/денег или тайная встреча. Бросок: 2+ успех; 1 — карта потеряна, деньги остаются. 3 голубя на игру.</td></tr>
       <tr><td><strong>Коалиция</strong></td><td>Временное объединение войск нескольких игроков в одном городе против других (даже против союзников).</td></tr>
+      <tr><td><strong>Предательство</strong></td><td>Не механика. Можно атаковать союзника; союз при этом не расторгается.</td></tr>
     </tbody>
   </table>
 
@@ -455,8 +351,7 @@
       <tr><td><strong>Пленные</strong></td><td>Лорды, захваченные после уничтожения всех их войск.</td></tr>
       <tr><td><strong>Выкуп</strong></td><td>Плата за освобождение пленного.</td></tr>
       <tr><td><strong>Обращение</strong></td><td>Попытка церковнослужителя обратить викингов.</td></tr>
-      <tr><td><strong>Ярл</strong></td><td>Предводитель клана викингов.</td></tr>
-      <tr><td><strong>Драккар</strong></td><td>Корабль викингов; 1 драккар = 1 клан.</td></tr>
+      <tr><td><strong>Ярл / Драккар</strong></td><td>Предводитель клана викингов / Корабль (1 драккар = 1 клан).</td></tr>
     </tbody>
   </table>
 
@@ -468,10 +363,6 @@
       <tr><td><strong>Шервудский лес</strong></td><td>Короткий путь с риском встречи с Робин Гудом.</td></tr>
       <tr><td><strong>Орден Подвязки</strong></td><td>Титул за победу над викингами; преимущество при ничьей.</td></tr>
       <tr><td><strong>Кинжал бесчестья</strong></td><td>За разграбление аббатства или нападение на церковнослужителя; позволяет применять «Правосудие».</td></tr>
-      <tr><td><strong>Наёмники</strong></td><td>Мгновенная карта; арбалетчики по 2 пенни за жетон.</td></tr>
-      <tr><td><strong>Горожане</strong></td><td>Голоса в парламенте, поддержка восстания или помощь как «Тайный ход».</td></tr>
-      <tr><td><strong>Восстание</strong></td><td>Карта события; разыгрывается в городе под «Налогом» или «Голодом».</td></tr>
-      <tr><td><strong>Бедствия</strong></td><td>«Чёрная смерть», «Плохая погода», «Большой голод», «Вторжение викингов».</td></tr>
     </tbody>
   </table>
   <a href="#top" class="to-top">↑ к оглавлению</a>
@@ -491,7 +382,7 @@
 
   <div class="role-block">
     <div class="role-title">Король / правящая королева</div>
-    <p>Избирается пожизненно титулованными лордами (нужно не менее 3 голосов, включая голос епископа или архиепископа). Получает <strong>2 королевских рыцаря</strong> (3 БО). Может строить королевский замок за 5 пенни в любом городе; только суверен размещает там лордов и войска. Может 1 раз за раунд даровать феодальный титул. Может взимать феодальные налоги со свободного фьефа. Может созывать парламент для голосования по королевскому налогу (12 пенни). Может даровать Орден Подвязки (1 раз за раунд). Не может быть целью «Правосудия». Пока жив супруг, правящая королева может родить принца Уэльского даже в плену. Может отправиться в королевское аббатство (2 перехода) только с королевской гвардией. Титул ПО не даёт.</p>
+    <p>Избирается пожизненно титулованными лордами. Получает <strong>2 королевских рыцаря</strong> (3 БО). Может строить королевский замок за 5 пенни в любом городе; только суверен размещает там лордов и войска. Может 1 раз за раунд даровать феодальный титул. Может взимать феодальные налоги со свободного фьефа. Может созывать парламент для голосования по королевскому налогу (12 пенни). Может даровать Орден Подвязки (1 раз за раунд). Не может быть целью «Правосудия». Пока жив супруг, правящая королева может родить принца Уэльского даже в плену. Может отправиться в королевское аббатство (2 перехода) только с королевской гвардией. Титул ПО не даёт.</p>
   </div>
 
   <div class="role-block">
@@ -508,12 +399,69 @@
     <div class="role-title">Принц-консорт</div>
     <p>Вне королевской семьи. Не получает гвардию. Не даёт аббатству «королевского» дохода. Не может быть целью «Правосудия». Титул ПО не даёт.</p>
   </div>
+  
+  <h3>Королевская гвардия и аббатство</h3>
+  <p><strong>Гвардия:</strong> Не покупается, не может покинуть армию лорда. Дает <strong>+1 урон</strong> в ближнем бою. При смерти/плене лорда жетоны сбрасываются в запас (возвращаются только с новым монархом).<br>
+  <strong>Аббатство:</strong> Даёт <strong>3 пенни</strong> за каждого члена королевской семьи в нём. Принц-консорт в этот доход не входит.</p>
+  <a href="#top" class="to-top">↑ к оглавлению</a>
 
-  <h3>Королевская гвардия</h3>
-  <p>Бывает двух типов: королевские сержанты (1 БО, умирают от 1 урона) и королевские рыцари (3 БО, умирают от 3 урона). Не покупается. Не может покинуть армию своего лорда. В ближнем бою добавляет <strong>+1 урон</strong> своей стороне на каждом этапе. При смерти или плене лорда жетоны сбрасываются в запас. Убитые гвардейцы возвращаются только с новым королём или королевой.</p>
+  <h2 class="section-header" id="s3b">
+    <span class="medallion">3б</span>
+    <span class="ribbon">Двор, Церковь и Союзы</span>
+  </h2>
 
-  <h3>Аббатство и королевская семья</h3>
-  <p>Аббатство даёт <strong>3 пенни</strong> за каждого члена королевской семьи в нём (король, правящая королева, королева-консорт, принц Уэльский). Если аббатиса — член королевской семьи, жетон аббатства кладётся стороной «Королевское аббатство» вверх. Принц-консорт в этот доход не входит.</p>
+  <h3 id="s3b-marriage">Брачные союзы (подробно)</h3>
+  <p><strong>Когда:</strong> С 3-го раунда. <strong>Условия:</strong> Лорд и леди из разных семей (не женаты, без сана).</p>
+  <ul>
+    <li><strong>Бонусы:</strong> Свободный обмен деньгами и картами (можно дарить карты лордов и церковников). Возможность <strong>совместной победы (4 ПО)</strong>.</li>
+    <li><strong>Разрыв:</strong> Только при смерти супруга или если леди становится аббатисой.</li>
+    <li><strong>Предательство:</strong> Союз не защищает от атак. Можно нападать на союзника, но сам союз не расторгается (вы все еще можете вместе победить, если выживете).</li>
+  </ul>
+
+  <h3 id="s3b-coalition">Отличие союза от коалиции</h3>
+  <table>
+    <thead><tr><th>Параметр</th><th>Брачный союз</th><th>Коалиция</th></tr></thead>
+    <tbody>
+      <tr><td>Длительность</td><td>Постоянно (до смерти/аббатисы)</td><td>Только на время одного боя</td></tr>
+      <tr><td>Правила</td><td>Обмен ресурсами, путь к совместной победе</td><td>Суммирование БО и кубиков, чтобы победить врага</td></tr>
+      <tr><td>Дележка</td><td>Не касается сражений</td><td>Активный игрок решает, кому достанутся трофеи и пленные</td></tr>
+    </tbody>
+  </table>
+
+  <h3 id="s3b-sovereign">Зачем избирают суверена?</h3>
+  <p>Титул короля не даёт ПО, но даёт огромную власть:</p>
+  <ul>
+    <li><strong>Гвардия:</strong> 2 королевских рыцаря.</li>
+    <li><strong>Королевский замок:</strong> Контроль над городом (город выпадает из региона, мешая другим собирать фьеф).</li>
+    <li><strong>Парламент:</strong> Возможность ввести налог в 12 пенни и тайно распределить их.</li>
+    <li><strong>Раздача:</strong> Дарование феодальных титулов и Ордена Подвязки.</li>
+    <li><strong>Защита:</strong> Нельзя убить картой «Правосудие».</li>
+  </ul>
+  <p><em>Кандидатом может быть любой лорд с феодальным титулом, без сана. Голосуют титулованные лорды. Нужно минимум 3 голоса, включая голос епископа или архиепископа.</em></p>
+
+  <h3 id="s3b-parliament">Парламент (Королевский налог)</h3>
+  <p>Суверен созывает парламент, чтобы собрать <strong>12 пенни</strong> и тайно распределить их.</p>
+  <ul>
+    <li><strong>Голосование:</strong> Все лорды-мужчины (включая епископов) + карты «Горожане». Простое большинство.</li>
+    <li><strong>Риск:</strong> После голосования карта «Парламент» переворачивается в «Восстание». Это позволяет любому игроку устроить бунт с бонусом +1 урон.</li>
+  </ul>
+
+  <h3 id="s3b-church">Церковные титулы</h3>
+  <table>
+    <thead><tr><th>Титул</th><th>Кто может</th><th>Особенности</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Епископ / Архиепископ</strong></td>
+        <td>Неженатый мужчина</td>
+        <td>Собирают налог с мельниц, усмиряют бунты, обращают викингов. <strong>Не могут жениться и быть королём.</strong> (1 и 2 голоса соответственно).</td>
+      </tr>
+      <tr>
+        <td><strong>Аббатиса</strong></td>
+        <td>Незамужняя леди</td>
+        <td>Управляет аббатством (доход). Усмиряет бунты, обращает викингов. <strong>Не может выходить замуж и быть королевой.</strong> Может возглавлять несколько аббатств.</td>
+      </tr>
+    </tbody>
+  </table>
   <a href="#top" class="to-top">↑ к оглавлению</a>
 
   <h2 class="section-header" id="s4">
@@ -522,40 +470,18 @@
   </h2>
 
   <table>
-    <thead>
-      <tr><th>Фаза</th><th>Что происходит</th></tr>
-    </thead>
+    <thead><tr><th>Фаза</th><th>Что происходит</th></tr></thead>
     <tbody>
-      <tr><td><strong>1. «Слушайте, слушайте»</strong></td><td>Брачные союзы (с 3-го раунда); избрание суверена (нужно минимум 3 голоса, включая голос епископа/архиепископа); созыв парламента (голосование по королевскому налогу 12 пенни). В 1-м раунде пропускается.</td></tr>
+      <tr><td><strong>1. «Слушайте, слушайте»</strong></td><td>Брачные союзы (с 3-го раунда); избрание суверена (3+ голоса, включая епископа); созыв парламента. В 1-м раунде пропускается.</td></tr>
       <tr><td><strong>2. Действия с картами</strong></td><td>Сброс карт; набор до 2 карт (лимит на руке — 3); розыгрыш бедствий (в 1-м раунде не активны); розыгрыш карт с руки.</td></tr>
-      <tr><td><strong>3. Доход</strong></td><td>1 пенни за город; 2 за мельницу/аббатство; +1 за погоду/урожай; 2 пенни королеве-консорту; налоги. При викингах доход делится на 2 (округление вверх). В конце фазы карты погоды сбрасываются.</td></tr>
-      <tr><td><strong>4. Покупки</strong></td><td>Выкуп пленных (2 пенни за лорда + 2 за титул); покупка войск и зданий; покупка феодального титула (2 пенни за город, нужен замок и контроль над всеми городами региона).</td></tr>
-      <tr><td><strong>5. Перемещение</strong></td><td>До 2 переходов на лорда; войска только с лордом; морские переходы между портами; кавалерийская атака (только лорды и рыцари, +1 урон защитнику).</td></tr>
-      <tr><td><strong>6. Викинги</strong></td><td>Сбор (ярлы набирают по 3 викинга); высадка (бросок кубика); перемещение (2 перехода, случайное направление); сражение (при численном превосходстве); выкуп или обращение.</td></tr>
+      <tr><td><strong>3. Доход</strong></td><td>1 пенни за город; 2 за мельницу/аббатство; +1 за погоду/урожай; 2 пенни королеве-консорту; налоги. При викингах доход делится на 2. Карты погоды сбрасываются.</td></tr>
+      <tr><td><strong>4. Покупки</strong></td><td>Выкуп пленных (2 пенни за лорда + 2 за титул); покупка войск и зданий; покупка феодального титула (2 пенни за город).</td></tr>
+      <tr><td><strong>5. Перемещение</strong></td><td>До 2 переходов; войска только с лордом; морские переходы между портами; кавалерийская атака (лорды и рыцари, +1 урон защитнику).</td></tr>
+      <tr><td><strong>6. Викинги</strong></td><td>Сбор (ярлы набирают по 3 викинга); высадка (кубик); перемещение (2 перехода, случайное); сражение (при превосходстве); выкуп или обращение.</td></tr>
       <tr><td><strong>7. Сражение</strong></td><td>Дальний бой → ближний бой. См. разделы 5–9.</td></tr>
       <tr><td><strong>8. Конец раунда</strong></td><td>Сброс бедствий и «Налога»; маркер раунда; передача первого игрока; проверка победы с 5-го раунда.</td></tr>
     </tbody>
   </table>
-
-  <h3 id="s4-purchases">Стоимость покупок (фаза 4)</h3>
-  <table>
-    <thead>
-      <tr><th>Объект</th><th class="center">Цена</th><th>Примечание</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Сержант</td><td class="center">1 пенни</td><td>1 БО</td></tr>
-      <tr><td>Лучник</td><td class="center">2 пенни</td><td>1 БО</td></tr>
-      <tr><td>Арбалетчик (наёмник)</td><td class="center">2 пенни</td><td>2 БО</td></tr>
-      <tr><td>Рыцарь</td><td class="center">3 пенни</td><td>3 БО</td></tr>
-      <tr><td>Бомбарда</td><td class="center">3 пенни</td><td>0 БО, 1 кубик</td></tr>
-      <tr><td>Требушет</td><td class="center">5 пенни</td><td>0 БО, 2 кубика +1 урон</td></tr>
-      <tr><td>Мельница</td><td class="center">3 пенни</td><td>Доход 2 пенни</td></tr>
-      <tr><td>Замок / королевский замок</td><td class="center">5 пенни</td><td>Защита; королевский замок даёт контроль над городом, не может стать крепостью</td></tr>
-      <tr><td>Аббатство</td><td class="center">Бесплатно</td><td>Основывает аббатиса</td></tr>
-    </tbody>
-  </table>
-
-  <p><strong>Феодальный титул:</strong> нужно контролировать все города региона и иметь там замок. Стоимость — 2 пенни за город. Замок становится крепостью, регион — фьефом.</p>
   <a href="#top" class="to-top">↑ к оглавлению</a>
 
   <h2 class="section-header" id="s5">
@@ -578,9 +504,8 @@
       <tr><td class="center">13+</td><td class="center">3</td></tr>
     </tbody>
   </table>
-  <p>Коалиция суммирует БО.</p>
 
-  <h3 id="s5-ranged">Дальний бой</h3>
+  <h3>Дальний бой</h3>
   <ul>
     <li>Первым стреляет активный игрок.</li>
     <li>Требушет: 2 кубика +1 урон за каждый дополнительный.</li>
@@ -589,24 +514,11 @@
     <li>Можно целиться в лорда/ярла: объявить до броска и выбросить <strong>3f</strong>; при успехе лорд погибает.</li>
   </ul>
 
-  <h3 id="s5-melee">Ближний бой: БО</h3>
-  <table>
-    <tbody>
-      <tr><td>Сержант, лучник</td><td class="center">1</td></tr>
-      <tr><td>Арбалетчик</td><td class="center">2</td></tr>
-      <tr><td>Рыцарь</td><td class="center">3</td></tr>
-      <tr><td>Лорд-мужчина</td><td class="center">1</td></tr>
-      <tr><td>Леди с феодальным титулом</td><td class="center">1</td></tr>
-    </tbody>
-  </table>
-  <p>Бомбарды и требушеты <strong>не дают БО</strong> в ближнем бою.</p>
-
-  <h3 id="s5-damage">Урон</h3>
+  <h3>Ближний бой: БО и Урон</h3>
+  <p>Сержант/лучник = 1 БО; арбалетчик = 2; рыцарь = 3; лорд-мужчина = 1; леди с феодальным титулом = 1. Бомбарды и требушеты БО не дают.</p>
   <ul>
-    <li>1 f = 1 урон.</li>
-    <li>Сержант/лучник — 1 урон; арбалетчик/викинг — 2; рыцарь/ярл — 3.</li>
-    <li>Лорд умирает/попадает в плен только после уничтожения всех его людей.</li>
-    <li>Избыточный урон не переносится на лорда.</li>
+    <li>1 f = 1 урон. Сержант/лучник умирает от 1; арбалетчик/викинг от 2; рыцарь/ярл от 3.</li>
+    <li>Лорд умирает/попадает в плен только после уничтожения всех его людей. Избыточный урон не переносится на лорда.</li>
   </ul>
   <a href="#top" class="to-top">↑ к оглавлению</a>
 
@@ -616,9 +528,7 @@
   </h2>
 
   <table>
-    <thead>
-      <tr><th>Цель</th><th>Штраф атакующему (ближний бой)</th><th>Дальний бой</th></tr>
-    </thead>
+    <thead><tr><th>Цель</th><th>Штраф атакующему (ближний бой)</th><th>Дальний бой</th></tr></thead>
     <tbody>
       <tr><td><strong>Город без укреплений</strong></td><td>Нет</td><td>Обычные правила</td></tr>
       <tr><td><strong>Замок</strong></td><td>−1 кубик</td><td>Минимум 2 лучника/арбалетчика для 1 кубика</td></tr>
@@ -631,9 +541,7 @@
     Если атакующий использует «Тайный ход»; если защитник совершает вылазку; если защитник совершает кавалерийскую атаку.
   </div>
 
-  <p><strong>Королевский замок:</strong> даёт контроль над городом; не может стать крепостью; при захвате не-королевской семьёй становится обычным замком.</p>
-
-  <p><strong>После победы:</strong> разграбить мельницу (2 пенни); разграбить аббатство (10 пенни + реликвии, но лорд получает <strong>кинжал бесчестья</strong>); забрать бомбарды/требушеты, если есть свободные жетоны своего цвета.</p>
+  <p><strong>После победы:</strong> разграбить мельницу (2 пенни); разграбить аббатство (10 пенни + реликвии, но лорд получает <strong>кинжал бесчестья</strong>); забрать бомбарды/требушеты (при наличии жетонов).</p>
   <a href="#top" class="to-top">↑ к оглавлению</a>
 
   <h2 class="section-header" id="s7">
@@ -642,34 +550,14 @@
   </h2>
 
   <p><strong>Осада объявляется</strong>, если атакующий не может бросить хотя бы 1 кубик с учётом защиты. Только в городе с замком или крепостью.</p>
-
-  <h3>Как объявить</h3>
-  <ol>
-    <li>Положить жетон требушета стороной «Строящийся».</li>
-    <li>В следующую фазу «Покупки» заплатить <strong>5 пенни</strong> → «Построен».</li>
-    <li>Можно доплатить ещё 5 пенни и добавить второй требушет.</li>
-    <li>Если не заплатить — осада снимается.</li>
-  </ol>
-
-  <h3>Эффекты осады</h3>
   <ul>
-    <li>Осаждённый не получает доход.</li>
-    <li>Не может покупать войска в городе (но может вводить лордов картами).</li>
-    <li>Осаждающий может размещать войска.</li>
-    <li>Осаждённые не могут выйти без разрешения (кроме «Тайного хода» или кавалерийской атаки).</li>
-    <li>Союзники могут войти как подкрепление в фазу «Перемещение».</li>
-    <li>Осаждающий может снять осаду в любой момент.</li>
-    <li>Если у осаждающего нет лорда — осада снимается.</li>
+    <li>Кладется жетон требушета «Строящийся». В следующую фазу «Покупки» платится <strong>5 пенни</strong> → «Построен» (можно доплатить за второй).</li>
+    <li>Осаждённый не получает доход, не может покупать войска, не может выйти без «Тайного хода».</li>
+    <li>Осаждающий может размещать войска и снять осаду в любой момент.</li>
   </ul>
-
-  <div class="callout">
-    <span class="callout-title">Дальний бой при осаде</span>
-    Если у стороны нет дальнего боя или достаточных сил для ближнего, противник может провести <strong>два этапа дальнего боя подряд</strong>.
-  </div>
-
   <div class="callout example">
     <span class="callout-title">Вылазка</span>
-    Осаждённый выходит из укрепления → становится атакующим и <strong>теряет защиту стен</strong>. Бомбарды и требушеты не используются.
+    Осаждённый выходит из укрепления → становится атакующим и <strong>теряет защиту стен</strong>.
   </div>
   <a href="#top" class="to-top">↑ к оглавлению</a>
 
@@ -677,14 +565,11 @@
     <span class="medallion">8</span>
     <span class="ribbon">Коалиция</span>
   </h2>
-
   <ul>
-    <li>Возможна, если в городе более двух игроков.</li>
-    <li>Можно объединяться даже против брачных союзников.</li>
-    <li>Силы суммируются.</li>
-    <li>Активный игрок распределяет потери и забирает пленных.</li>
-    <li>Если лидер коалиции убит — сражение прекращается, но может быть возобновлено в ход следующего игрока коалиции.</li>
-    <li>Коалиция <strong>не заменяет</strong> брачный союз и <strong>не даёт</strong> совместной победы.</li>
+    <li>Временное объединение в одном городе (даже против союзников).</li>
+    <li>Силы суммируются. Активный игрок распределяет потери и забирает пленных.</li>
+    <li>Если лидер убит — сражение прекращается (возобновляется в ход следующего игрока коалиции).</li>
+    <li>Не даёт совместной победы (в отличие от брачного союза).</li>
   </ul>
   <a href="#top" class="to-top">↑ к оглавлению</a>
 
@@ -692,18 +577,12 @@
     <span class="medallion">9</span>
     <span class="ribbon">Викинги</span>
   </h2>
-
   <ul>
-    <li>1 викинг = 2 БО; 1 ярл = 3 БО.</li>
-    <li>Клан: 5 викингов + ярл. Без ярла не двигаются и не атакуют.</li>
-    <li>Атакуют, если превосходят по численности <strong>боевых единиц-людей</strong> (лорды, бомбарды, требушеты не считаются).</li>
-    <li>Не используют дальний бой.</li>
-    <li>Для атаки замка/крепости должен остаться хотя бы 1 кубик после вычета защиты.</li>
-    <li>Захват крепости: титул и ПО теряются, карта титула возвращается в колоду. Клан остаётся в городе.</li>
-    <li>Пленные: 2 пенни за лорда и титул.</li>
-    <li>Откуп: 5 пенни — весь клан уходит, пленные освобождаются.</li>
-    <li>Обращение: церковнослужитель в одном городе с ярлом бросает кубик: <strong>3–6</strong> успех; <strong>1–2</strong> церковнослужитель погибает.</li>
-    <li>«Засада» и «Заказное убийство» могут убить ярла.</li>
+    <li>1 викинг = 2 БО; 1 ярл = 3 БО. Клан: 5 викингов + ярл.</li>
+    <li>Атакуют, если превосходят по численности (лорды, бомбарды, требушеты не считаются).</li>
+    <li>Не используют дальний бой. Для атаки замка/крепости должен остаться 1 кубик.</li>
+    <li>Захват крепости: титул и ПО теряются. Клан остаётся в городе.</li>
+    <li>Откуп: 5 пенни за весь клан. Обращение: бросок кубика 3-6 (успех), 1-2 (смерть церковнослужителя).</li>
   </ul>
   <a href="#top" class="to-top">↑ к оглавлению</a>
 
@@ -711,81 +590,33 @@
     <span class="medallion">10</span>
     <span class="ribbon">Пленные и выкуп</span>
   </h2>
-
-  <h3>Пленный</h3>
   <ul>
-    <li>Сохраняет титулы и ПО.</li>
-    <li>Не может голосовать, быть кандидатом, двигаться.</li>
-    <li>Может заключить брачный союз по доверенности.</li>
-    <li>Не может быть убит, кроме карты «Заказное убийство».</li>
+    <li>Сохраняют титулы и ПО, но не могут голосовать/двигаться. Нельзя убить (кроме «Заказного убийства»).</li>
+    <li>Выкуп: 2 пенни за лорда + 2 за титул (викингам — 5 пенни за клан).</li>
+    <li>Освобождение: карта «Тайный ход» или автоматически при гибели захватчика.</li>
   </ul>
-
-  <h3>Освобождение</h3>
-  <ul>
-    <li>Выкуп: 2 пенни за лорда + 2 пенни за титул.</li>
-    <li>Карта «Тайный ход».</li>
-    <li>Автоматически при гибели захватчика.</li>
-    <li>Викинги: 5 пенни за весь клан.</li>
-  </ul>
-
-  <h3>Обращение викингов</h3>
-  <p>См. раздел 9.</p>
   <a href="#top" class="to-top">↑ к оглавлению</a>
 
   <h2 class="section-header" id="s11">
     <span class="medallion">11</span>
     <span class="ribbon">Карты и бедствия</span>
   </h2>
-
-  <h3>Колоды</h3>
   <ul>
-    <li>Персонажи: 20 лордов, 3 аббатства, 2 наёмника, 2 горожанина, 2 епархии, 2 архиепархии.</li>
-    <li>События: 16 карт.</li>
-    <li>Бедствия: «Чёрная смерть», «Плохая погода», «Большой голод», «Вторжение викингов».</li>
+    <li><strong>Бедствия:</strong> «Чёрная смерть» (лорды умирают на 1-3), «Плохая погода» (блокирует движение/бой), «Большой голод» (блокирует доход), «Вторжение викингов». В 1-м раунде не активны.</li>
+    <li><strong>События:</strong> «Налог» (доход), «Восстание» (урон), «Наёмники» (мгновенно), «Горожане» (голоса).</li>
+    <li><strong>Особые:</strong> Реликвии (1 ПО суверену), Экскалибур (+1 урон), Шервуд (Робин Гуд требует выкуп), Орден Подвязки (защита от ничьей), Кинжал бесчестья (цель для «Правосудия»).</li>
   </ul>
-
-  <h3 id="s11-disasters">Бедствия</h3>
-  <ul>
-    <li>В 1-м раунде не активны.</li>
-    <li><strong>«Чёрная смерть»:</strong> для каждого лорда кубик; 1–3 — смерть; в аббатстве — только 1–2. Войска теряют половину людей.</li>
-    <li><strong>«Плохая погода»:</strong> запрещает сражения и перемещения в регионе; отменяется «Хорошей погодой».</li>
-    <li><strong>«Большой голод»:</strong> мельницы и аббатства не дают дохода; отменяется «Богатым урожаем».</li>
-    <li><strong>«Вторжение викингов»:</strong> определяет морскую зону высадки.</li>
-  </ul>
-
-  <h3 id="s11-events">События</h3>
-  <p><strong>Налог:</strong> доход с фьефа (2 пенни за город) или церковный налог с мельниц епархии. Может спровоцировать восстание.</p>
-  <p><strong>Восстание:</strong> разыгрывается в городе под «Налогом» или «Голодом»; наносит урон; церковнослужитель может усмирить.</p>
-  <p><strong>Наёмники:</strong> мгновенная карта; арбалетчики по 2 пенни за жетон.</p>
-  <p><strong>Горожане:</strong> голоса в парламенте, поддержка восстания или помощь как «Тайный ход».</p>
-
-  <h3>Особые объекты</h3>
-  <p><strong>Реликвии:</strong> 4 жетона; первая переданная суверену даёт 1 ПО; в аббатстве реликвия даёт 3 пенни.</p>
-  <p><strong>Экскалибур:</strong> вытащить при броске <strong>6</strong> на деревянном кубике (лорд Артур — <strong>4+</strong>); +1 урон в ближнем бою; если нет короля, владелец становится королём.</p>
-  <p><strong>Шервудский лес:</strong> при входе бросок кубика; <strong>1–2</strong> — встреча с Робин Гудом. Выкуп: 2 пенни за нетитулованного лорда, 4 — за титулованного, 5 — за церковнослужителя без фьефа, 10 — за церковнослужителя с фьефом. Король/королева ничего не платят.</p>
-  <p><strong>Орден Подвязки:</strong> даётся сувереном за победу над викингами; преимущество при ничьей; нельзя нападать на суверена.</p>
-  <p><strong>Кинжал бесчестья:</strong> за разграбление аббатства или нападение на церковнослужителя; позволяет применять «Правосудие».</p>
   <a href="#top" class="to-top">↑ к оглавлению</a>
 
   <h2 class="section-header" id="s12">
     <span class="medallion">12</span>
     <span class="ribbon">Важные нюансы и лимиты</span>
   </h2>
-
   <ul>
-    <li>В семье не более <strong>3 лордов</strong> одновременно.</li>
-    <li>На руке не более <strong>3 карт</strong>.</li>
-    <li>Карты бедствий не считаются в лимит рук, но кладутся в специальный ряд.</li>
-    <li>Брачный союз — с <strong>3-го раунда</strong>.</li>
-    <li>Проверка победы — с <strong>5-го раунда</strong>.</li>
-    <li>Игра заканчивается в конце <strong>7-го раунда</strong>.</li>
-    <li>За феодальный титул — <strong>1 ПО</strong>; за первую переданную суверену реликвию — <strong>1 ПО</strong>.</li>
-    <li>Церковные и королевские титулы <strong>ПО не дают</strong>.</li>
+    <li>В семье не более <strong>3 лордов</strong>; на руке не более <strong>3 карт</strong> (бедствия не считаются).</li>
+    <li>Брачный союз — с <strong>3-го раунда</strong>; проверка победы — с <strong>5-го</strong>; конец игры — <strong>7-й раунд</strong>.</li>
     <li>При игре втроём совместная победа по союзу <strong>не засчитывается</strong>.</li>
-    <li>Если у игрока не осталось лордов и городов, он <strong>не выбывает</strong>: может брать карты и вводить нового лорда.</li>
-    <li>Деньги хранятся за ширмой; войска до сражения лежат лицом вниз.</li>
-    <li>Карты умерших лордов убираются в коробку, а не в сброс.</li>
-    <li>Принц-консорт <strong>не входит</strong> в королевскую семью: не даёт аббатству «королевского» дохода и не получает гвардию, но защищён от «Правосудия».</li>
+    <li>Деньги за ширмой, войска лицом вниз. Карты умерших лордов в коробку (не в сброс).</li>
   </ul>
   <a href="#top" class="to-top">↑ к оглавлению</a>
 
@@ -795,181 +626,42 @@
   </h2>
 
   <p style="font-size:9pt; font-style:italic; color:#6b4a1f; margin-top:0;">
-    Числа в колонке «Раздел» кликабельны. Нажмите на номер — попадёте в нужный раздел.
+    Числа в колонке «Раздел» кликабельны.
   </p>
 
   <table class="index-table">
     <thead>
-      <tr>
-        <th>Термин</th>
-        <th class="center">Раздел</th>
-        <th>Термин</th>
-        <th class="center">Раздел</th>
-      </tr>
+      <tr><th>Термин</th><th class="center">Раздел</th><th>Термин</th><th class="center">Раздел</th></tr>
     </thead>
     <tbody>
-      <tr>
-        <td><a href="#s3-1">Аббатиса</a></td>
-        <td class="center"><a href="#s3-1">3.1</a>, <a href="#s3a">3а</a>, <a href="#s11">11</a></td>
-        <td><a href="#s3-1">Королева-консорт</a></td>
-        <td class="center"><a href="#s3-1">3.1</a>, <a href="#s3a">3а</a>, <a href="#s4">4</a></td>
-      </tr>
-      <tr>
-        <td><a href="#s3-2">Аббатство</a></td>
-        <td class="center"><a href="#s3-2">3.2</a>, <a href="#s3a">3а</a>, <a href="#s4">4</a>, <a href="#s6">6</a>, <a href="#s11">11</a></td>
-        <td><a href="#s3a">Королевская гвардия</a></td>
-        <td class="center"><a href="#s3a">3а</a></td>
-      </tr>
-      <tr>
-        <td><a href="#s3-2">Армия</a></td>
-        <td class="center"><a href="#s3-2">3.2</a></td>
-        <td><a href="#s3-1">Королевская семья</a></td>
-        <td class="center"><a href="#s3-1">3.1</a>, <a href="#s3a">3а</a>, <a href="#s11">11</a></td>
-      </tr>
-      <tr>
-        <td><a href="#s3-1">Архиепископ</a></td>
-        <td class="center"><a href="#s3-1">3.1</a>, <a href="#s4">4</a>, <a href="#s11">11</a></td>
-        <td><a href="#s3a">Королевский замок</a></td>
-        <td class="center"><a href="#s3a">3а</a>, <a href="#s6">6</a></td>
-      </tr>
-      <tr>
-        <td><a href="#s3-5">Бедствия</a></td>
-        <td class="center"><a href="#s3-5">3.5</a>, <a href="#s11">11</a></td>
-        <td><a href="#s2">Король</a></td>
-        <td class="center"><a href="#s2">2</a>, <a href="#s3-1">3.1</a>, <a href="#s3a">3а</a>, <a href="#s4">4</a></td>
-      </tr>
-      <tr>
-        <td><a href="#s4">Бомбарда</a></td>
-        <td class="center"><a href="#s4">4</a>, <a href="#s5">5</a>, <a href="#s6">6</a></td>
-        <td><a href="#s6">Крепость</a></td>
-        <td class="center"><a href="#s4">4</a>, <a href="#s6">6</a>, <a href="#s7">7</a></td>
-      </tr>
-      <tr>
-        <td><a href="#s3-2">БО</a></td>
-        <td class="center"><a href="#s3-2">3.2</a>, <a href="#s5">5</a></td>
-        <td><a href="#s4">Лучник</a></td>
-        <td class="center"><a href="#s4">4</a>, <a href="#s5">5</a></td>
-      </tr>
-      <tr>
-        <td><a href="#s3-3">Брачный союз</a></td>
-        <td class="center"><a href="#s3-3">3.3</a>, <a href="#s4">4</a>, <a href="#s8">8</a>, <a href="#s12">12</a></td>
-        <td><a href="#s4">Мельница</a></td>
-        <td class="center"><a href="#s4">4</a>, <a href="#s11">11</a></td>
-      </tr>
-      <tr>
-        <td><a href="#s3-5">Восстание</a></td>
-        <td class="center"><a href="#s3-5">3.5</a>, <a href="#s11">11</a></td>
-        <td><a href="#s3-5">Наёмники</a></td>
-        <td class="center"><a href="#s3-5">3.5</a>, <a href="#s11">11</a></td>
-      </tr>
-      <tr>
-        <td><a href="#s3-4">Выкуп</a></td>
-        <td class="center"><a href="#s3-4">3.4</a>, <a href="#s10">10</a></td>
-        <td><a href="#s3-2">Налог</a></td>
-        <td class="center"><a href="#s3-2">3.2</a>, <a href="#s4">4</a>, <a href="#s11">11</a></td>
-      </tr>
-      <tr>
-        <td><a href="#s3-4">Вылазка</a></td>
-        <td class="center"><a href="#s3-4">3.4</a>, <a href="#s7">7</a></td>
-        <td><a href="#s3-4">Обращение</a></td>
-        <td class="center"><a href="#s3-4">3.4</a>, <a href="#s9">9</a>, <a href="#s10">10</a></td>
-      </tr>
-      <tr>
-        <td><a href="#s2">Герцог/герцогиня</a></td>
-        <td class="center"><a href="#s2">2</a>, <a href="#s3-1">3.1</a>, <a href="#s4">4</a></td>
-        <td><a href="#s2">Орден Подвязки</a></td>
-        <td class="center"><a href="#s2">2</a>, <a href="#s3-5">3.5</a>, <a href="#s3a">3а</a>, <a href="#s11">11</a></td>
-      </tr>
-      <tr>
-        <td><a href="#s3-3">Голубь почтовый</a></td>
-        <td class="center"><a href="#s3-3">3.3</a></td>
-        <td><a href="#s3-4">Осада</a></td>
-        <td class="center"><a href="#s3-4">3.4</a>, <a href="#s7">7</a></td>
-      </tr>
-      <tr>
-        <td><a href="#s3-5">Горожане</a></td>
-        <td class="center"><a href="#s3-5">3.5</a>, <a href="#s11">11</a></td>
-        <td><a href="#s3-4">Пленные</a></td>
-        <td class="center"><a href="#s3-4">3.4</a>, <a href="#s6">6</a>, <a href="#s10">10</a></td>
-      </tr>
-      <tr>
-        <td><a href="#s2">Граф/графиня</a></td>
-        <td class="center"><a href="#s2">2</a>, <a href="#s3-1">3.1</a>, <a href="#s4">4</a></td>
-        <td><a href="#s1">ПО</a></td>
-        <td class="center"><a href="#s1">1</a>, <a href="#s2">2</a></td>
-      </tr>
-      <tr>
-        <td><a href="#s3-4">Драккар</a></td>
-        <td class="center"><a href="#s3-4">3.4</a>, <a href="#s9">9</a></td>
-        <td><a href="#s3-3">Почтовый голубь</a></td>
-        <td class="center"><a href="#s3-3">3.3</a></td>
-      </tr>
-      <tr>
-        <td><a href="#s3-2">Доход</a></td>
-        <td class="center"><a href="#s3-2">3.2</a>, <a href="#s4">4</a></td>
-        <td><a href="#s3-1">Правящая королева</a></td>
-        <td class="center"><a href="#s3-1">3.1</a>, <a href="#s3a">3а</a>, <a href="#s4">4</a></td>
-      </tr>
-      <tr>
-        <td><a href="#s3-1">Епископ</a></td>
-        <td class="center"><a href="#s3-1">3.1</a>, <a href="#s4">4</a>, <a href="#s11">11</a></td>
-        <td><a href="#s3-1">Принц-консорт</a></td>
-        <td class="center"><a href="#s3-1">3.1</a>, <a href="#s3a">3а</a></td>
-      </tr>
-      <tr>
-        <td><a href="#s4">Замок</a></td>
-        <td class="center"><a href="#s4">4</a>, <a href="#s6">6</a></td>
-        <td><a href="#s3-1">Принц Уэльский</a></td>
-        <td class="center"><a href="#s3-1">3.1</a>, <a href="#s3a">3а</a></td>
-      </tr>
-      <tr>
-        <td><a href="#s3-4">Кавалерийская атака</a></td>
-        <td class="center"><a href="#s3-4">3.4</a>, <a href="#s4">4</a>, <a href="#s6">6</a></td>
-        <td><a href="#s2">Реликвии</a></td>
-        <td class="center"><a href="#s2">2</a>, <a href="#s3-5">3.5</a>, <a href="#s11">11</a></td>
-      </tr>
-      <tr>
-        <td><a href="#s3-5">Карты</a></td>
-        <td class="center"><a href="#s3-5">3.5</a>, <a href="#s4">4</a>, <a href="#s11">11</a></td>
-        <td><a href="#s4">Рыцарь</a></td>
-        <td class="center"><a href="#s4">4</a>, <a href="#s5">5</a></td>
-      </tr>
-      <tr>
-        <td><a href="#s3-5">Кинжал бесчестья</a></td>
-        <td class="center"><a href="#s3-5">3.5</a>, <a href="#s6">6</a>, <a href="#s11">11</a></td>
-        <td><a href="#s4">Сержант</a></td>
-        <td class="center"><a href="#s4">4</a>, <a href="#s5">5</a></td>
-      </tr>
-      <tr>
-        <td><a href="#s3-3">Коалиция</a></td>
-        <td class="center"><a href="#s3-3">3.3</a>, <a href="#s5">5</a>, <a href="#s8">8</a></td>
-        <td><a href="#s3-1">Суверен</a></td>
-        <td class="center"><a href="#s3-1">3.1</a>, <a href="#s3a">3а</a>, <a href="#s4">4</a></td>
-      </tr>
-      <tr>
-        <td><a href="#s3-2">Контроль над городом</a></td>
-        <td class="center"><a href="#s3-2">3.2</a>, <a href="#s4">4</a></td>
-        <td><a href="#s2">Титулы</a></td>
-        <td class="center"><a href="#s2">2</a>, <a href="#s3-1">3.1</a>, <a href="#s4">4</a></td>
-      </tr>
-      <tr>
-        <td><a href="#s4">Требушет</a></td>
-        <td class="center"><a href="#s4">4</a>, <a href="#s5">5</a>, <a href="#s7">7</a></td>
-        <td><a href="#s3-2">Туман войны</a></td>
-        <td class="center"><a href="#s3-2">3.2</a></td>
-      </tr>
-      <tr>
-        <td><a href="#s3-2">Фьеф</a></td>
-        <td class="center"><a href="#s3-2">3.2</a>, <a href="#s4">4</a></td>
-        <td><a href="#s3-5">Шервудский лес</a></td>
-        <td class="center"><a href="#s3-5">3.5</a>, <a href="#s11">11</a></td>
-      </tr>
-      <tr>
-        <td><a href="#s2">Экскалибур</a></td>
-        <td class="center"><a href="#s2">2</a>, <a href="#s3-5">3.5</a>, <a href="#s11">11</a></td>
-        <td><a href="#s3-4">Ярл</a></td>
-        <td class="center"><a href="#s3-4">3.4</a>, <a href="#s9">9</a></td>
-      </tr>
+      <tr><td><a href="#s3-1">Аббатиса</a></td><td class="center"><a href="#s3-1">3.1</a>, <a href="#s3b">3б</a>, <a href="#s11">11</a></td><td><a href="#s3-1">Королева-консорт</a></td><td class="center"><a href="#s3-1">3.1</a>, <a href="#s3a">3а</a></td></tr>
+      <tr><td><a href="#s3-2">Аббатство</a></td><td class="center"><a href="#s3-2">3.2</a>, <a href="#s3a">3а</a>, <a href="#s6">6</a></td><td><a href="#s3a">Королевская гвардия</a></td><td class="center"><a href="#s3a">3а</a></td></tr>
+      <tr><td><a href="#s3-2">Армия</a></td><td class="center"><a href="#s3-2">3.2</a></td><td><a href="#s3-1">Королевская семья</a></td><td class="center"><a href="#s3-1">3.1</a>, <a href="#s3a">3а</a></td></tr>
+      <tr><td><a href="#s3-1">Архиепископ</a></td><td class="center"><a href="#s3-1">3.1</a>, <a href="#s3b">3б</a></td><td><a href="#s3a">Королевский замок</a></td><td class="center"><a href="#s3a">3а</a>, <a href="#s6">6</a></td></tr>
+      <tr><td><a href="#s3-5">Бедствия</a></td><td class="center"><a href="#s3-5">3.5</a>, <a href="#s11">11</a></td><td><a href="#s2">Король</a></td><td class="center"><a href="#s2">2</a>, <a href="#s3a">3а</a></td></tr>
+      <tr><td><a href="#s4">Бомбарда</a></td><td class="center"><a href="#s4">4</a>, <a href="#s5">5</a>, <a href="#s6">6</a></td><td><a href="#s6">Крепость</a></td><td class="center"><a href="#s6">6</a>, <a href="#s7">7</a></td></tr>
+      <tr><td><a href="#s3-2">БО</a></td><td class="center"><a href="#s3-2">3.2</a>, <a href="#s5">5</a></td><td><a href="#s4">Лучник</a></td><td class="center"><a href="#s4">4</a>, <a href="#s5">5</a></td></tr>
+      <tr><td><a href="#s3-3">Брачный союз</a></td><td class="center"><a href="#s3-3">3.3</a>, <a href="#s3b">3б</a>, <a href="#s8">8</a></td><td><a href="#s4">Мельница</a></td><td class="center"><a href="#s4">4</a>, <a href="#s11">11</a></td></tr>
+      <tr><td><a href="#s3-5">Восстание</a></td><td class="center"><a href="#s3-5">3.5</a>, <a href="#s11">11</a></td><td><a href="#s3-5">Наёмники</a></td><td class="center"><a href="#s3-5">3.5</a>, <a href="#s11">11</a></td></tr>
+      <tr><td><a href="#s3-4">Выкуп</a></td><td class="center"><a href="#s3-4">3.4</a>, <a href="#s10">10</a></td><td><a href="#s3-2">Налог</a></td><td class="center"><a href="#s3-2">3.2</a>, <a href="#s11">11</a></td></tr>
+      <tr><td><a href="#s3-4">Вылазка</a></td><td class="center"><a href="#s3-4">3.4</a>, <a href="#s7">7</a></td><td><a href="#s3-4">Обращение</a></td><td class="center"><a href="#s3-4">3.4</a>, <a href="#s9">9</a></td></tr>
+      <tr><td><a href="#s2">Герцог/герцогиня</a></td><td class="center"><a href="#s2">2</a>, <a href="#s3-1">3.1</a></td><td><a href="#s2">Орден Подвязки</a></td><td class="center"><a href="#s2">2</a>, <a href="#s3-5">3.5</a>, <a href="#s11">11</a></td></tr>
+      <tr><td><a href="#s3-3">Голубь почтовый</a></td><td class="center"><a href="#s3-3">3.3</a></td><td><a href="#s3-4">Осада</a></td><td class="center"><a href="#s3-4">3.4</a>, <a href="#s7">7</a></td></tr>
+      <tr><td><a href="#s3-5">Горожане</a></td><td class="center"><a href="#s3-5">3.5</a>, <a href="#s11">11</a></td><td><a href="#s3b">Парламент</a></td><td class="center"><a href="#s3b">3б</a>, <a href="#s4">4</a></td></tr>
+      <tr><td><a href="#s2">Граф/графиня</a></td><td class="center"><a href="#s2">2</a>, <a href="#s3-1">3.1</a></td><td><a href="#s3-4">Пленные</a></td><td class="center"><a href="#s3-4">3.4</a>, <a href="#s10">10</a></td></tr>
+      <tr><td><a href="#s3-4">Драккар</a></td><td class="center"><a href="#s3-4">3.4</a>, <a href="#s9">9</a></td><td><a href="#s1">ПО</a></td><td class="center"><a href="#s1">1</a>, <a href="#s2">2</a></td></tr>
+      <tr><td><a href="#s3-2">Доход</a></td><td class="center"><a href="#s3-2">3.2</a>, <a href="#s4">4</a></td><td><a href="#s3-1">Правящая королева</a></td><td class="center"><a href="#s3-1">3.1</a>, <a href="#s3a">3а</a></td></tr>
+      <tr><td><a href="#s3-1">Епископ</a></td><td class="center"><a href="#s3-1">3.1</a>, <a href="#s3b">3б</a></td><td><a href="#s3b">Предательство</a></td><td class="center"><a href="#s3b">3б</a></td></tr>
+      <tr><td><a href="#s4">Замок</a></td><td class="center"><a href="#s4">4</a>, <a href="#s6">6</a></td><td><a href="#s3-1">Принц-консорт</a></td><td class="center"><a href="#s3-1">3.1</a>, <a href="#s3a">3а</a></td></tr>
+      <tr><td><a href="#s3b">Избрание</a></td><td class="center"><a href="#s3b">3б</a></td><td><a href="#s3-1">Принц Уэльский</a></td><td class="center"><a href="#s3-1">3.1</a>, <a href="#s3a">3а</a></td></tr>
+      <tr><td><a href="#s3-4">Кавалерийская атака</a></td><td class="center"><a href="#s3-4">3.4</a>, <a href="#s4">4</a></td><td><a href="#s2">Реликвии</a></td><td class="center"><a href="#s2">2</a>, <a href="#s3-5">3.5</a></td></tr>
+      <tr><td><a href="#s3-5">Карты</a></td><td class="center"><a href="#s3-5">3.5</a>, <a href="#s4">4</a></td><td><a href="#s4">Рыцарь</a></td><td class="center"><a href="#s4">4</a>, <a href="#s5">5</a></td></tr>
+      <tr><td><a href="#s3-5">Кинжал бесчестья</a></td><td class="center"><a href="#s3-5">3.5</a>, <a href="#s6">6</a></td><td><a href="#s4">Сержант</a></td><td class="center"><a href="#s4">4</a>, <a href="#s5">5</a></td></tr>
+      <tr><td><a href="#s3-3">Коалиция</a></td><td class="center"><a href="#s3-3">3.3</a>, <a href="#s3b">3б</a>, <a href="#s8">8</a></td><td><a href="#s3-1">Суверен</a></td><td class="center"><a href="#s3-1">3.1</a>, <a href="#s3a">3а</a></td></tr>
+      <tr><td><a href="#s3-2">Контроль над городом</a></td><td class="center"><a href="#s3-2">3.2</a></td><td><a href="#s2">Титулы</a></td><td class="center"><a href="#s2">2</a>, <a href="#s3-1">3.1</a></td></tr>
+      <tr><td><a href="#s4">Требушет</a></td><td class="center"><a href="#s4">4</a>, <a href="#s5">5</a>, <a href="#s7">7</a></td><td><a href="#s3-2">Туман войны</a></td><td class="center"><a href="#s3-2">3.2</a></td></tr>
+      <tr><td><a href="#s3-2">Фьеф</a></td><td class="center"><a href="#s3-2">3.2</a></td><td><a href="#s3-5">Шервудский лес</a></td><td class="center"><a href="#s3-5">3.5</a></td></tr>
+      <tr><td><a href="#s2">Экскалибур</a></td><td class="center"><a href="#s2">2</a>, <a href="#s3-5">3.5</a></td><td><a href="#s3-4">Ярл</a></td><td class="center"><a href="#s3-4">3.4</a>, <a href="#s9">9</a></td></tr>
     </tbody>
   </table>
 
